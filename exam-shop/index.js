@@ -1,9 +1,15 @@
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.send('Hello World from exam shop!');
+    const exams = [
+        {code: 'AZ-900', price: 100, provider: 'Example Inc Provider'},
+        {code: 'AZ-900', price: 165, provider: 'SolidScore Provider'},
+        {code: 'AZ-104', price: 165, provider: 'Cool Exam Provider'},
+    ];
+
+    res.json(exams);
 })
 
 app.listen(port, () => {

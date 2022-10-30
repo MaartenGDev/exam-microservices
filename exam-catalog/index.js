@@ -1,9 +1,15 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    res.send('Hello World from exam catalog!');
+    const exams = [
+        {code: 'AZ-900', name: 'Azure Fundamentals'},
+        {code: 'AZ-204', name: 'Azure Developer Associate'},
+        {code: 'AZ-104', name: 'Azure Administrator Associate'},
+    ];
+
+    res.json(exams);
 })
 
 app.listen(port, () => {
